@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Playground.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_right = 315.0
+margin_bottom = 131.5
+rect_min_size = Vector2( 600, 500 )
+window_title = "Open a File"
+mode = 0
+access = 2
+current_dir = "/godot_ws/test_network_plugin"
+current_path = "/godot_ws/test_network_plugin/"
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_right = 8.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 200, 200 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tabs" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label2" type="Label" parent="TabContainer/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 16.0
+margin_bottom = -10.0
+text = "L1"
+
+[node name="Label" type="Label" parent="TabContainer/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 32.0
+margin_bottom = -10.0
+text = "K1"
+
+[node name="Tabs2" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="TabContainer/Tabs2"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "K3"
+
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]

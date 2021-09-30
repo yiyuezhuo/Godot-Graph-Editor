@@ -1,0 +1,212 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://MapAnnotation.gd" type="Script" id=2]
+[ext_resource path="res://SelectBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MapRect.gd" type="Script" id=4]
+
+[node name="MapAnnotation" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tabs" type="TabContainer" parent="HBoxContainer"]
+margin_right = 158.0
+margin_bottom = 600.0
+
+[node name="Edit" type="VBoxContainer" parent="HBoxContainer/Tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 150, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectBoxNode" parent="HBoxContainer/Tabs/Edit" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 150.0
+margin_bottom = 276.0
+size_flags_vertical = 3
+
+[node name="LabelKey" parent="HBoxContainer/Tabs/Edit/SelectBoxNode/VBoxContainer" index="0"]
+margin_right = 150.0
+text = "Node"
+
+[node name="LabelValue" parent="HBoxContainer/Tabs/Edit/SelectBoxNode/VBoxContainer" index="1"]
+margin_right = 150.0
+text = ""
+
+[node name="LabelMeta" parent="HBoxContainer/Tabs/Edit/SelectBoxNode/VBoxContainer" index="2"]
+margin_right = 150.0
+
+[node name="TextMeta" parent="HBoxContainer/Tabs/Edit/SelectBoxNode/VBoxContainer" index="3"]
+margin_right = 150.0
+margin_bottom = 154.0
+
+[node name="LabelTemplate" parent="HBoxContainer/Tabs/Edit/SelectBoxNode/VBoxContainer" index="4"]
+margin_top = 158.0
+margin_right = 150.0
+margin_bottom = 172.0
+
+[node name="TextTemplate" parent="HBoxContainer/Tabs/Edit/SelectBoxNode/VBoxContainer" index="5"]
+margin_top = 176.0
+margin_right = 150.0
+margin_bottom = 276.0
+text = "{
+\"Name\": \"\"
+}"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Tabs/Edit"]
+margin_top = 280.0
+margin_right = 150.0
+margin_bottom = 284.0
+
+[node name="SelectBoxEdge" parent="HBoxContainer/Tabs/Edit" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 288.0
+margin_right = 150.0
+margin_bottom = 564.0
+size_flags_vertical = 3
+
+[node name="LabelKey" parent="HBoxContainer/Tabs/Edit/SelectBoxEdge/VBoxContainer" index="0"]
+margin_right = 150.0
+text = "Edge"
+
+[node name="LabelValue" parent="HBoxContainer/Tabs/Edit/SelectBoxEdge/VBoxContainer" index="1"]
+margin_right = 150.0
+text = ""
+
+[node name="LabelMeta" parent="HBoxContainer/Tabs/Edit/SelectBoxEdge/VBoxContainer" index="2"]
+margin_right = 150.0
+
+[node name="TextMeta" parent="HBoxContainer/Tabs/Edit/SelectBoxEdge/VBoxContainer" index="3"]
+margin_right = 150.0
+margin_bottom = 154.0
+
+[node name="LabelTemplate" parent="HBoxContainer/Tabs/Edit/SelectBoxEdge/VBoxContainer" index="4"]
+margin_top = 158.0
+margin_right = 150.0
+margin_bottom = 172.0
+
+[node name="TextTemplate" parent="HBoxContainer/Tabs/Edit/SelectBoxEdge/VBoxContainer" index="5"]
+margin_top = 176.0
+margin_right = 150.0
+margin_bottom = 276.0
+text = "{
+\"dist\": 1
+}"
+
+[node name="Config" type="VBoxContainer" parent="HBoxContainer/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 150, 0 )
+
+[node name="ImportMap" type="Button" parent="HBoxContainer/Tabs/Config"]
+margin_right = 150.0
+margin_bottom = 20.0
+text = "Import new map"
+
+[node name="NodeColorLabel" type="Label" parent="HBoxContainer/Tabs/Config"]
+margin_top = 24.0
+margin_right = 150.0
+margin_bottom = 38.0
+text = "Node Color"
+
+[node name="NodeColorPicker" type="ColorPickerButton" parent="HBoxContainer/Tabs/Config"]
+margin_top = 42.0
+margin_right = 150.0
+margin_bottom = 62.0
+color = Color( 0.541176, 0.14902, 0.14902, 1 )
+
+[node name="EdgeColorLabel" type="Label" parent="HBoxContainer/Tabs/Config"]
+margin_top = 66.0
+margin_right = 150.0
+margin_bottom = 80.0
+text = "Edge Color"
+
+[node name="EdgeColorPicker" type="ColorPickerButton" parent="HBoxContainer/Tabs/Config"]
+margin_top = 84.0
+margin_right = 150.0
+margin_bottom = 104.0
+
+[node name="EdgeWidthLabel" type="Label" parent="HBoxContainer/Tabs/Config"]
+margin_top = 108.0
+margin_right = 150.0
+margin_bottom = 122.0
+text = "Edge Width"
+
+[node name="EdgeWidthSpin" type="SpinBox" parent="HBoxContainer/Tabs/Config"]
+margin_top = 126.0
+margin_right = 150.0
+margin_bottom = 150.0
+min_value = 1.0
+max_value = 50.0
+value = 1.0
+
+[node name="ExportButton" type="Button" parent="HBoxContainer/Tabs/Config"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "Export JSON"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+margin_left = 162.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 800, 550 )
+mouse_filter = 1
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapRect" type="TextureRect" parent="HBoxContainer/ScrollContainer"]
+script = ExtResource( 4 )
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_right = 315.0
+margin_bottom = 131.5
+rect_min_size = Vector2( 500, 500 )
+window_title = "Open a File"
+mode = 0
+access = 2
+current_dir = "/godot_ws/test_network_plugin"
+current_path = "/godot_ws/test_network_plugin/"
+
+[node name="FileDialogExport" type="FileDialog" parent="."]
+margin_right = 315.0
+margin_bottom = 131.5
+rect_min_size = Vector2( 500, 500 )
+access = 2
+current_dir = "/godot_ws/test_network_plugin"
+current_path = "/godot_ws/test_network_plugin/"
+
+[connection signal="gui_input" from="." to="." method="_on_MapAnnotation_gui_input"]
+[connection signal="meta_changed" from="HBoxContainer/Tabs/Edit/SelectBoxNode" to="." method="_on_SelectBoxNode_meta_changed"]
+[connection signal="meta_changed" from="HBoxContainer/Tabs/Edit/SelectBoxEdge" to="." method="_on_SelectBoxEdge_meta_changed"]
+[connection signal="pressed" from="HBoxContainer/Tabs/Config/ImportMap" to="." method="_on_ImportMap_pressed"]
+[connection signal="pressed" from="HBoxContainer/Tabs/Config/ExportButton" to="." method="_on_ExportButton_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="file_selected" from="FileDialogExport" to="." method="_on_FileDialogExport_file_selected"]
+
+[editable path="HBoxContainer/Tabs/Edit/SelectBoxNode"]
+[editable path="HBoxContainer/Tabs/Edit/SelectBoxEdge"]
